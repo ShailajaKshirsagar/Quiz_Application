@@ -10,6 +10,7 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
+//Entity class
 public class Questions {
 
     @Id
