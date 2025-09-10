@@ -29,7 +29,7 @@ public class QuizController {
     }
 
     //getquizquestions api
-    @GetMapping("/getQuizQuestions/{id}")
+    @GetMapping("/getQuizQuestions")
     public ResponseEntity<List<QuizQuestionDto>> getQuizQuestion(@PathVariable("id") int quizId) {
         List<QuizQuestionDto> questions = quizService.getQuizQuestion(quizId);
         return new ResponseEntity<>(questions, HttpStatus.OK);
