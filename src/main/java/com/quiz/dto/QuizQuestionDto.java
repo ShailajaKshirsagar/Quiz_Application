@@ -5,6 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
+//DTO class
 public class QuizQuestionDto
 {
     private int id;
