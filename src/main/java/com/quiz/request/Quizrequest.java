@@ -8,9 +8,7 @@ import lombok.Setter;
 public class Quizrequest
 {
     private int queId;
-
-    private int optionNo;
-
+    
     private int selectedOption;
     
 }

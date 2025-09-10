@@ -6,6 +6,7 @@ import com.quiz.entity.Quiz;
 //import com.quiz.repository.QuizRepository;
 import com.quiz.repository.QuestionRepository;
 import com.quiz.repository.QuizRepository;
+import com.quiz.request.Quizrequest;
 import com.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,5 +62,25 @@ public class QuizServiceImpl implements QuizService
             dtoList.add(dto);
         }
         return dtoList;
+    }
+
+    @Override
+    public String submitQuiz(List<Quizrequest> request, int quizId) {
+
+        Quiz quiz = quizRepository.findById(quizId).get();
+        List<Questions> questionListOfQuiz = quiz.getQuestionsList();
+        int correctAnswer = 0;
+        for(Questions q:questionListOfQuiz){
+            for(Quizrequest quizRequest :request ){
+                if(quizRequest.getQueId() == q.getId()){
+                    if(quizRequest.getSelectedOption() == q.getCorrect_option()){
+                        correctAnswer++;
+                    }
+                }
+            }
+        }
+        String msg = "Your score is : " + correctAnswer;
+
+        return msg;
     }
 }
