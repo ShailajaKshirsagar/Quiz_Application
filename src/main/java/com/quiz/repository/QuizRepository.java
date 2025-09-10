@@ -12,4 +12,7 @@ import java.util.List;
 @Repository
 public interface QuizRepository extends JpaRepository<Quiz,Integer> {
 
+    @Query(value = "SELECT * FROM questions q WHERE q.category = :category ORDER BY RAND() LIMIT :no_of_que", nativeQuery = true)
+    List<Questions> findRandomQuestion(@Param("no_of_que") int no_of_que, @Param("category") String category);
+
 }

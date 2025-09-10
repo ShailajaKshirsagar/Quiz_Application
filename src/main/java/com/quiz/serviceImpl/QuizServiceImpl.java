@@ -22,10 +22,11 @@ public class QuizServiceImpl implements QuizService
     @Autowired
     private QuestionRepository questionRepository;
 
+    //save quiz with title ,noofque , category
     @Override
     public String saveQuiz(int noofque, String quizName, String category) {
 
-        List<Questions> questionsList = questionRepository.findRandomQuestion(noofque,category);
+        List<Questions> questionsList = quizRepository.findRandomQuestion(noofque,category);
 
         Quiz quiz = new Quiz();
         quiz.setTitle(quizName);
@@ -37,6 +38,7 @@ public class QuizServiceImpl implements QuizService
         return "Quiz is created";
     }
 
+    //get quiz question with id
     @Override
     public List<QuizQuestionDto> getQuizQuestion(int quizId) {
 
