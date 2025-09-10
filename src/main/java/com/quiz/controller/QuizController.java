@@ -35,6 +35,7 @@ public class QuizController {
         return new ResponseEntity<>(questions, HttpStatus.OK);
     }
 
+    //submit quiz api
     @PostMapping("/submitAns/{id}")
     public  ResponseEntity<String> submitAns(@RequestBody List<Quizrequest> quizrequest, @PathVariable("id") int quizId){
         String msg = quizService.submitQuiz(quizrequest,quizId);
