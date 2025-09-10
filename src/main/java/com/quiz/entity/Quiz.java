@@ -17,17 +17,12 @@ public class Quiz
 
     private String title;
 
+    private String Category;
+
     private int noOfQue;
 
-    private String option1;
-
-    private String option2;
-
-    private String option3;
-
-    private String option4;
-
     @ManyToMany
+    @JoinTable(name = "quiz_questions_list")
     private List<Questions> questionsList;
 
 }
